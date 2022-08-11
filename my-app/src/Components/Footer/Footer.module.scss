@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+@import './../../Assets/styles/assets.scss';
 
 .footerWrapper {
   width: 100%;
@@ -15,8 +15,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-family: Roboto, sans-serif;
-  font-size: 16px;
+  font-family: 'Source Sans Pro', sans-serif;
   font-weight: 400;
-  line-height: 24px;
+  font-size: 16px;
+  color: $secondary;
+  line-height: 133%;
 }

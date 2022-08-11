@@ -1,13 +1,14 @@
+@import './../../Assets/styles/assets.scss';
+
 .page404Container {
   display: flex;
   justify-content: center;
   align-items: center;
   min-height: 100vh;
 
-  font-family: Roboto, sans-serif;
-  font-size: 30px;
+  .imgWrapper {
+    width: 600px;
+  }
 }
 
-.imgWrapper {
-  width: 600px;
-}
+

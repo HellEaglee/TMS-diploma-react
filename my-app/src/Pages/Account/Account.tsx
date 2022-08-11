@@ -2,7 +2,7 @@ import { FC } from "react";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./Account.module.css";
+import styles from "./Account.module.scss";
 import Title from "../../Components/Title";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";

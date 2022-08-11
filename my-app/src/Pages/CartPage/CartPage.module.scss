@@ -1,0 +1,45 @@
+@import './../../Assets/styles/assets.scss';
+
+.cartContainer {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 77px;
+
+  .cartWrapper {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 14px;
+    color: $primary;
+    line-height: 133%;
+  }
+
+  .totalContainer {
+    width: 1120px;
+    display: flex;
+    justify-content: flex-end;
+
+    .totalWrapper {
+      display: flex;
+      flex-direction: column;
+      gap: 16px;
+
+      .checkButton {
+        width: 256px;
+        margin-bottom: 72px;
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+

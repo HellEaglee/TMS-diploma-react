@@ -1,0 +1,18 @@
+@import './../../Assets/styles/assets.scss';
+
+.booksContainer {
+  width: 1120px;
+  min-height: 100vh;
+
+  display: flex;
+  flex-direction: column;
+
+  .booksWrapper {
+    display: flex;
+    flex-wrap: wrap;
+    width: 1120px;
+    gap: 32px;
+  }
+}
+
+

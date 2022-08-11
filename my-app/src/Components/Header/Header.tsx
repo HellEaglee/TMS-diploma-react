@@ -14,7 +14,7 @@ import {
 import IconButton from "../IconButton";
 import Divider from "../Divider";
 
-import styles from "./Header.module.css";
+import styles from "./Header.module.scss";
 
 const Header: FC = () => {
   const navigate = useNavigate();

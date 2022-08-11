@@ -1,0 +1,52 @@
+@import './../../Assets/styles/assets.scss';
+
+.accountContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 77px;
+
+  .accountWrapper {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: $primary;
+    line-height: 32px;
+
+    input {
+      width: 512px;
+    }
+
+    .profileInfoWrapper {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .newPassWrapper {
+      display: flex;
+      justify-content: space-between;
+      padding-bottom: 72px;
+    }
+
+    .buttonsWrapper {
+      display: flex;
+      justify-content: flex-end;
+      gap: 32px;
+      padding-bottom: 72px;
+      padding-top: 48px;
+    }
+    
+    .accountButtons {
+      width: 256px;
+    }
+  }
+}
+
+
+
+
+
+
+

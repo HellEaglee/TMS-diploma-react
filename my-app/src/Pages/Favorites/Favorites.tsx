@@ -1,7 +1,7 @@
 import { FC, useEffect, useMemo } from "react";
 import classNames from "classnames";
 
-import styles from "./Favorites.module.css";
+import styles from "./Favorites.module.scss";
 import IconButton from "../../Components/IconButton";
 import Title from "../../Components/Title";
 import {

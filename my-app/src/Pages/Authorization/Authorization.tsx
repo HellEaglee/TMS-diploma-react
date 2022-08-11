@@ -1,7 +1,7 @@
 import { FC, useEffect, useState } from "react";
 import classNames from "classnames";
 
-import styles from "./Authorization.module.css";
+import styles from "./Authorization.module.scss";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 import { Link } from "react-router-dom";

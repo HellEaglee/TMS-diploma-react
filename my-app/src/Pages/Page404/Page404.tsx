@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-import styles from "./Page404.module.css";
+import styles from "./Page404.module.scss";
 import { ErrorImg } from "../../Assets";
 
 const Page404: FC = () => {

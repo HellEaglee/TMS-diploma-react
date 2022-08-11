@@ -1,0 +1,140 @@
+@import './../../Assets/styles/assets.scss';
+
+.authContainer {
+  display: flex;
+  align-items: center;
+  min-height: 100vh;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: $primary;
+  line-height: 133%;
+
+  .authWrapper {
+
+    .tabsContainer {
+      border: 1px solid $gray;
+      width: 544px;
+      height: 70px;
+    
+      display: flex;
+      align-items: center;
+
+      .tabsWrapper {
+
+        .tabsButton {
+          background-color: transparent;
+          color: $primary;
+          border: none;
+          width: 272px;
+        }
+      }
+    }
+
+    .tabContentWrapper {
+
+      .signInWrapper {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $gray;
+        width: 544px;
+        height: 478px;
+
+        .dividerLeft {
+          height: 2px;
+          width: 239px;
+          background: $primary;
+          margin-left: 32px;
+        }
+
+        .welcomeTextWrapper {
+          width: 476px;
+          height: 64px;
+          background: $purple;
+          margin: 32px 0 0 32px;
+        }
+
+        .welcomeText {
+          padding: 20px;
+        }
+
+        .contentWrapper {
+          display: flex;
+          flex-direction: column;
+          padding-top: 25px;
+          padding-left: 32px;
+
+          input {
+            width: 448px;
+          }
+
+          .forgotPassWrapper {
+            padding-top: 8px;
+            
+            a {
+              text-decoration: none;
+              color: $primary;
+            }
+          }
+  
+          .authButton {
+            margin-top: 40px;
+            width: 480px;
+          }
+        }
+      }
+
+      .signUpWrapper {
+        display: flex;
+        flex-direction: column;
+        border: 1px solid $gray;
+        width: 544px;
+        height: 584px;
+
+        .dividerRight {
+          height: 2px;
+          width: 239px;
+          background: $primary;
+          margin-left: 273px;
+        }
+
+        .contentWrapper {
+          display: flex;
+          flex-direction: column;
+          padding-top: 25px;
+          padding-left: 32px;
+
+          input {
+            width: 448px;
+          }
+
+
+          .authButton {
+            margin-top: 40px;
+            width: 480px;
+          }
+        }
+      }
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

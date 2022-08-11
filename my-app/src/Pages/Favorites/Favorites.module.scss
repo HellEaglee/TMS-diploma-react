@@ -1,0 +1,74 @@
+@import './../../Assets/styles/assets.scss';
+
+.favoritesContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 77px;
+
+  .iconWrapper {
+    transform: rotate(180deg);
+  }
+
+  .favoritesWrapper {
+    width: 1120px;
+    display: flex;
+    flex-direction: column;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: $primary;
+    line-height: 133%;
+  }
+
+  .noFavWrapper {
+    width: 1120px;
+    min-height: 50vh;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .favBooksWrapper {
+    width: 1120px;
+    min-height: 80vh;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 32px;
+  }
+
+  .dividerWrapper {
+    margin: 40px 0;
+  }
+  
+  .secondTitleContainer{
+    width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    .arrowsWrapper {
+      display: flex;
+    }
+    
+  }
+
+  .popularBooksContainer {
+    width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+

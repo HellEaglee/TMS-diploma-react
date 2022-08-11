@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./CartPage.module.css";
+import styles from "./CartPage.module.scss";
 import IconButton from "../../Components/IconButton";
 import Title from "../../Components/Title";
 import { IconArrowLeft } from "../../Assets";

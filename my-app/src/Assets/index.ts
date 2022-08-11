@@ -9,7 +9,7 @@ import IconArrowLeft from "./icons/Icon-Arrow-Left.svg";
 import RatingIcon from "./icons/Rating-Icon.svg";
 import IconArrowSmall from "./icons/Icon-Arrow-Up.svg";
 import IconArrowRightSmall from "./icons/Icon-Arrow-Up-Right.svg";
-import ErrorImg from "./icons/404Error.svg";
+import ErrorImg from "./icons/404Error.png";
 import FBIcon from "./icons/facebook.svg";
 import TwitterIcon from "./icons/twitter.svg";
 import MoreIcon from "./icons/more-horizontal.svg";

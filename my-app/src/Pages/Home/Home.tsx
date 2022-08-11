@@ -4,7 +4,7 @@ import classNames from "classnames";
 
 import Footer from "../../Components/Footer";
 import Header from "../../Components/Header";
-import styles from "./Home.module.css";
+import styles from "./Home.module.scss";
 
 const Home: FC = () => {
   return (

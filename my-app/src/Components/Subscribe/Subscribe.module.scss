@@ -1,0 +1,57 @@
+@import './../../Assets/styles/assets.scss';
+
+.subscribeContainer {
+  display: flex;
+  justify-content: center;
+
+  .subscribeWrapper {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 72px;
+    flex-direction: column;
+  
+    height: 288px;
+    width: 1120px;
+    background: $purple;
+    margin-top: 73px;
+
+    .h2 {
+      padding-left: 64px;
+      font-family: 'Bebas Neue', sans-serif;
+      font-weight: 400;
+      font-size: 40px;
+      color: $primary;
+      line-height: 60px;
+      text-align: left;
+    }
+    
+    .p {
+      padding-left: 64px;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      font-size: 18px;
+      color: $secondary;
+      line-height: 133%;
+      text-align: left;
+    }
+  }
+
+  .emailWrapper {
+    padding: 0 0 45px 64px;
+    display: flex;
+
+    input {
+      height: 56px;
+      width: 992px;
+      border-radius: 2px;
+      padding: 16px, 32px, 16px, 24px;
+    }
+  }
+  
+}
+
+
+
+
+
+

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-import styles from "./Subscribe.module.css";
+import styles from "./Subscribe.module.scss";
 import Input from "../Input";
 import Button from "../Button";
 

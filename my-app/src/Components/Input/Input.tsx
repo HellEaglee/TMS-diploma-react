@@ -3,7 +3,7 @@ import classNames from "classnames";
 
 
 
-import styles from "./Input.module.css";
+import styles from "./Input.module.scss";
 
 type InputProps = {
   type: string;

@@ -1,7 +1,7 @@
 import { FC } from "react";
 import classNames from "classnames";
 
-import styles from "./Footer.module.css";
+import styles from "./Footer.module.scss";
 import Divider from "../Divider";
 
 const Footer: FC = () => {

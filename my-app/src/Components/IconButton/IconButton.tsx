@@ -1,6 +1,6 @@
 import { FC } from "react";
 import classNames from "classnames";
-import styles from "./IconButton.module.css";
+import styles from "./IconButton.module.scss";
 
 type IconButtonProps = {
   icon: string;

@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useNavigate } from "react-router-dom";
 import classNames from "classnames";
 
-import styles from "./NewPassword.module.css";
+import styles from "./NewPassword.module.scss";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 

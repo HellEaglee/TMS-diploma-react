@@ -2,7 +2,7 @@ import { FC, useEffect, useMemo } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import classNames from "classnames";
 
-import styles from "./Books.module.css";
+import styles from "./Books.module.scss";
 import { getBooks, BooksSelectors } from "../../Redux/reducers/books";
 import Subscribe from "../../Components/Subscribe";
 import Title from "../../Components/Title";

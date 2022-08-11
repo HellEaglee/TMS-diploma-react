@@ -2,7 +2,7 @@ import { FC, useState } from "react";
 import classNames from "classnames";
 import { useNavigate } from "react-router-dom";
 
-import styles from "./ResetPassword.module.css";
+import styles from "./ResetPassword.module.scss";
 import Input from "../../Components/Input";
 import Button from "../../Components/Button";
 

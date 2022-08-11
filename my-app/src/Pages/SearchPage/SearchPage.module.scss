@@ -8,6 +8,38 @@
   flex-direction: column;
   flex-wrap: wrap;
 
+  .searchInputContainer {
+    .searchInput {
+      position: absolute;
+      top: 1%;
+      left: 35%;
+      height: 56px;
+      width: 542px;
+      border: 1px solid $gray;
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: $primary;
+      line-height: 133%;
+    
+      padding: 0 10px;
+    
+    
+      &:focus {
+        outline: 2px solid $gray;
+      }
+    
+    
+      &::placeholder {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: $secondary;
+        line-height: 133%;
+      }
+    }
+  }
+
   .searchWrapper {
     display: flex;
     flex-wrap: wrap;
@@ -18,34 +50,6 @@
 
 
 
-.searchInput {
-  position: absolute;
-  top: 1%;
-  left: 35%;
-  height: 56px;
-  width: 542px;
-  border: 1px solid $gray;
-  font-family: 'Source Sans Pro', sans-serif;
-  font-weight: 400;
-  font-size: 16px;
-  color: $primary;
-  line-height: 133%;
 
-  padding: 0 10px;
-
-
-  &:focus {
-    outline: 2px solid $gray;
-  }
-
-
-  &::placeholder {
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    color: $secondary;
-    line-height: 133%;
-  }
-}
 
 
