@@ -1,0 +1,66 @@
+@import './../../Assets/styles/assets.scss';
+
+.bookCardContainer {
+  display: flex;
+  width: 352px;
+  margin-bottom: 49px;
+
+  .bookCardWrapper {
+
+    .bookCardBackground {
+      display: flex;
+      width: 352px;
+      height: 364px;
+      background: $purple;
+      margin-bottom: 21px;
+      justify-content: center;
+    }
+
+    .bookCardDescribtion {
+      a {
+        text-decoration: none;
+        color: $primary;
+      }
+
+      .bookCardTitle {
+        margin-bottom: 30px;
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: 400;
+        font-size: 24px;
+        color: $primary;
+        line-height: 32px;
+        cursor: pointer;
+      }
+
+      .bookCardSubTitle {
+        font-family: 'Source Sans Pro', sans-serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: $secondary;
+        line-height: 133%;
+        margin-bottom: 40px;
+      }
+
+      .priceRateWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .price {
+          font-family: 'Bebas Neue', sans-serif;
+          font-weight: 400;
+          font-size: 24px;
+          color: $primary;
+          line-height: 32px;
+        }
+      }
+    }
+
+  }
+}
+
+
+
+
+
+

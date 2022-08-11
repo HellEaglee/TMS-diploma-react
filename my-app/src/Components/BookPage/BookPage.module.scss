@@ -1,0 +1,147 @@
+@import './../../Assets/styles/assets.scss';
+
+
+
+.bookPageContainer {
+  width: 1120px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: $primary;
+  line-height: 32px;
+  margin-top: 77px;
+
+  .bookInfoContainer {
+    display: flex;
+    justify-content: space-between;
+
+    .bookImageContainer {
+
+      .bookBackground {
+        display: flex;
+        width: 544px;
+        height: 472px;
+        background: $purple;
+        justify-content: flex-end;
+      }
+    }
+
+
+    .bookInfoWrapper  {
+
+      .dividerLineSmall {
+        width: 448px;
+        height: 1px;
+        background: $white;
+        margin-bottom: 25px;
+      }
+
+      .detailsWrapper {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        .priceWrapper {
+          font-weight: 700;
+          font-size: 40px;
+        }
+
+        .textWrapper {
+          font-size: 16px;
+          color: $secondary;
+        }
+
+        .authorWrapper {
+          width: 280px;
+          display: flex;
+          flex-direction: column;
+        }
+      }
+
+      .buttonWrapper {
+        margin: 25px 0;
+      }
+      
+    }
+  }
+
+  .titlesWrapper {
+    display: flex;
+    gap: 120px;
+
+    .oneTitleWrapper {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+
+      .dividerLine {
+        width: 161px;
+        height: 2px;
+        background: $primary;
+      }
+    }          
+  }
+
+  .descWrapper {
+    padding: 50px 0;
+  }
+
+  .IconsWrapper {
+    display: flex;
+    gap: 25px;
+  }
+
+  .secondTitleContainer {
+    width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    h2 {
+      margin-bottom: 50px;
+    }
+
+    .arrowsWrapper {
+      display: flex;
+    }
+  }
+
+  .popularBooksContainer {
+    width: 1120px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

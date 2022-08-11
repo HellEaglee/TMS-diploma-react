@@ -1,0 +1,37 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap");
+
+.accountContainer {
+  display: flex;
+  justify-content: center;
+  padding-top: 77px;
+}
+
+.accountWrapper {
+  width: 1120px;
+  display: flex;
+  flex-direction: column;
+  font-family: Roboto, sans-serif;
+}
+
+.profileInfoWrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.newPassWrapper {
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 72px;
+}
+
+.buttonsWrapper {
+  display: flex;
+  justify-content: flex-end;
+  gap: 32px;
+  padding-bottom: 72px;
+  padding-top: 48px;
+}
+
+.accountButtons {
+  width: 256px;
+}
