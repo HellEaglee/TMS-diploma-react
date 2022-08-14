@@ -1,5 +1,5 @@
-import React, { FC, useState } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { FC } from "react";
+import { useDispatch } from "react-redux";
 import classNames from "classnames";
 
 import { CartSumProps } from "../../Types";

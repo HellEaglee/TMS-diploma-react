@@ -1,4 +1,4 @@
-export type BookModel = {
+export type BookItemProps = {
   error: string;
   title: string;
   subtitle: string;

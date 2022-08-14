@@ -5,7 +5,7 @@ import styles from "./SearchPage.module.scss";
 import Title from "../../Components/Title";
 import { useDispatch, useSelector } from "react-redux";
 import { BooksSelectors, getBooks } from "../../Redux/reducers/books";
-import { BookModel } from "../../Types";
+import { BookItemProps } from "../../Types";
 import BookCard from "../../Components/BookCard";
 
 const SearchPage: FC = () => {
@@ -20,7 +20,7 @@ const SearchPage: FC = () => {
   const searchBooksElements = useMemo(() => {
     return booksList
       ?.filter((book) => book.title.toLowerCase().includes(query))
-      .map((book: BookModel) => <BookCard key={book.isbn13} book={book} />);
+      .map((book: BookItemProps) => <BookCard key={book.isbn13} book={book} />);
   }, [booksList, query]);
 
   return (

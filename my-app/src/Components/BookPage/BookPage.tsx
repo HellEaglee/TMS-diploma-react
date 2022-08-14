@@ -31,7 +31,7 @@ import {
 } from "../../Assets";
 import Button from "../Button";
 import IconButton from "../IconButton";
-import { BookModel } from "../../Types";
+import { BookItemProps } from "../../Types";
 import BookCard from "../BookCard";
 
 const BookPage: FC = () => {
@@ -57,18 +57,18 @@ const BookPage: FC = () => {
     window.scrollTo(0, 0);
   }, []);
   
-  const addToCartHandler = (book: BookModel) => {
+  const addToCartHandler = (book: BookItemProps) => {
     dispatch(removeBookFromCart(book.isbn13));
     dispatch(setBookToCart(book));
 
   };
 
-  const addToFavHandler = (book: BookModel) => {
+  const addToFavHandler = (book: BookItemProps) => {
     dispatch(setFavBooks(book));
     setActive(!isActive)
   };
 
-  const removeFromFavHandler = (book: BookModel) => {
+  const removeFromFavHandler = (book: BookItemProps) => {
     dispatch(removeBookFromFav(book.isbn13))
     setActive(!isActive)
   }
@@ -82,7 +82,7 @@ const BookPage: FC = () => {
 
   const sliderBooksElements = useMemo(() => {
     return booksList
-      ?.map((book: BookModel) => <BookCard key={book.isbn13} book={book} />);
+      ?.map((book: BookItemProps) => <BookCard key={book.isbn13} book={book} />);
   }, [booksList]);
 
   const onStepBackHandler = () => {

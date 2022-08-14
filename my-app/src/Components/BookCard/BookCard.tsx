@@ -2,12 +2,12 @@ import { FC } from "react";
 import classNames from "classnames";
 
 import styles from "./BookCard.module.scss";
-import { BookModel } from "../../Types";
+import { BookItemProps } from "../../Types";
 import { RatingIcon } from "../../Assets";
 import { Link } from "react-router-dom";
 
 type BookCardProps = {
-  book: BookModel;
+  book: BookItemProps;
 };
 
 const BookCard: FC<BookCardProps> = (props) => {

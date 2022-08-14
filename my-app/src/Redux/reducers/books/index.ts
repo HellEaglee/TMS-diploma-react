@@ -1,15 +1,15 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { BookModel, CartBookItemProps } from "../../../Types";
+import { BookItemProps } from "../../../Types";
 import { RootState } from "../../store";
 
 type InitialStateType = {
   booksList: any[];
-  selectedBook: BookModel | null;
+  selectedBook: BookItemProps | null;
   isBooksLoading: boolean;
   selectedBookLoading: boolean;
   favBooksList: any[];
-  cartList: CartBookItemProps[];
+  cartList: BookItemProps[];
 }; 
 
 const initialState: InitialStateType = {
@@ -46,11 +46,10 @@ const booksSlice = createSlice({
         (book) => book.isbn13 !== action.payload
       );
     },
-    setBookToCart: (state, action: PayloadAction<CartBookItemProps>) => {
+    setBookToCart: (state, action: PayloadAction<BookItemProps>) => {
       state.cartList.push(action.payload);
     },
     removeBookFromCart: (state, action: PayloadAction<any>) => {
-      //CartBookItemProps
       state.cartList = state.cartList.filter(
         (book) => book.isbn13 !== action.payload
       );

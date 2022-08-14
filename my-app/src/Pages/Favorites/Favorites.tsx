@@ -15,7 +15,7 @@ import {
   IconArrowLeft,
 } from "../../Assets";
 import { BooksSelectors, getBooks, removeBookFromFav } from "../../Redux/reducers/books";
-import { BookModel } from "../../Types";
+import { BookItemProps } from "../../Types";
 import BookCard from "../../Components/BookCard";
 
 
@@ -37,12 +37,12 @@ const Favorites: FC = () => {
     dispatch(getBooks());
   }, []);
 
-    const removeFromFavHandler = (book: BookModel) => {
+    const removeFromFavHandler = (book: BookItemProps) => {
     dispatch(removeBookFromFav(book.isbn13));
     };
 
   const favBooksElements = useMemo(() => {
-    return favBooksList?.map((book: BookModel) => (
+    return favBooksList?.map((book: BookItemProps) => (
       <div className={classNames(styles.card, "wrapper")}>
       <div className={styles.bookCover}>
         <img src={book.image} alt="book cover" />
@@ -75,7 +75,7 @@ const Favorites: FC = () => {
 
   const sliderBooksElements = useMemo(() => {
     return booksList
-      ?.map((book: BookModel) => <BookCard key={book.isbn13} book={book} />);
+      ?.map((book: BookItemProps) => <BookCard key={book.isbn13} book={book} />);
   }, [booksList]);
 
   const onStepBackHandler = () => {

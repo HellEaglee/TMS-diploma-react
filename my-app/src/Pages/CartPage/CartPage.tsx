@@ -19,14 +19,14 @@ import BookCounter from "../../Components/BookCounter";
 import Button from "../../Components/Button";
 import BookPrice from "../../Components/BookPrice";
 import CartSum from "../../Components/CartSum";
-import { BookModel } from "../../Types";
+import { BookItemProps } from "../../Types";
 
 const CartPage: FC = () => {
   const navigate = useNavigate();
   const dispatch = useDispatch();
   const cartList = useSelector(CartBooksSelector.getCartBooks);
 
-  const removeFromCartHandler = (book: BookModel) => {
+  const removeFromCartHandler = (book: BookItemProps) => {
     dispatch(removeBookFromCart(book?.isbn13));
   };
 
