@@ -9,10 +9,12 @@
   flex-wrap: wrap;
 
   .searchInputContainer {
+    display: flex;
+    justify-content: center;
+
     .searchInput {
       position: absolute;
-      top: 1%;
-      left: 35%;
+      top: 10px;
       height: 56px;
       width: 542px;
       border: 1px solid $gray;
