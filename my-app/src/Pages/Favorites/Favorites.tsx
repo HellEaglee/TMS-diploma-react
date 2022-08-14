@@ -1,20 +1,24 @@
 import { FC, useEffect, useMemo } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.scss";
 import classNames from "classnames";
 
 import styles from "./Favorites.module.scss";
 import IconButton from "../../Components/IconButton";
 import Title from "../../Components/Title";
 import {
+  HeartFav,
+  RatingIcon,
   IconArrowLeft,
-  IconArrowRightSmall,
-  IconArrowSmall,
 } from "../../Assets";
-import { useDispatch, useSelector } from "react-redux";
-import { BooksSelectors, getBooks } from "../../Redux/reducers/books";
-import { BookModel } from "../../Types/models/book.model";
+import { BooksSelectors, getBooks, removeBookFromFav } from "../../Redux/reducers/books";
+import { BookModel } from "../../Types";
 import BookCard from "../../Components/BookCard";
-import Divider from "../../Components/Divider";
-import { useNavigate } from "react-router-dom";
+
+
 
 const Favorites: FC = () => {
   const favBooksList = useSelector(BooksSelectors.getFavBooks);
@@ -22,20 +26,56 @@ const Favorites: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
 
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
+
   useEffect(() => {
     dispatch(getBooks());
   }, []);
 
+    const removeFromFavHandler = (book: BookModel) => {
+    dispatch(removeBookFromFav(book.isbn13));
+    };
+
   const favBooksElements = useMemo(() => {
     return favBooksList?.map((book: BookModel) => (
-      <BookCard key={book.isbn13} book={book} />
+      <div className={classNames(styles.card, "wrapper")}>
+      <div className={styles.bookCover}>
+        <img src={book.image} alt="book cover" />
+      </div>
+      <div className={styles.bookInfo}>
+        <div onClick={() => navigate(`/books/${book.isbn13}`)}>
+          <div className={styles.title}>
+            {book.title}
+          </div>
+        </div>
+        <div className={styles.authors}>
+          <p>{`by ${book.authors}`}</p>
+        </div>
+        <div className={styles.ratingPrice}>
+          {book.price}
+          <div>
+            <img src={RatingIcon} alt="rating-icon" />
+          </div>
+        </div>
+      </div>
+      <div className={classNames(styles.fav)}>
+        <IconButton
+          icon={HeartFav}
+          onClick={() => {removeFromFavHandler(book!);}} 
+        />
+      </div>
+    </div>
     ));
   }, [favBooksList]);
 
-  const popularBooksElements = useMemo(() => {
+  const sliderBooksElements = useMemo(() => {
     return booksList
-      ?.slice(0, 3)
-      .map((book: BookModel) => <BookCard key={book.isbn13} book={book} />);
+      ?.map((book: BookModel) => <BookCard key={book.isbn13} book={book} />);
   }, [booksList]);
 
   const onStepBackHandler = () => {
@@ -61,20 +101,13 @@ const Favorites: FC = () => {
           {favBooksElements}
         </div>
       )}
-      <div className={classNames(styles.dividerWrapper)}>
-        <Divider />
-      </div>
 
       <div className={classNames(styles.secondTitleContainer)}>
         <h2>POPULAR BOOKS</h2>
-        <div className={classNames(styles.arrowsWrapper)}>
-          <IconButton icon={IconArrowSmall} onClick={() => {}} />
-          <IconButton icon={IconArrowRightSmall} onClick={() => {}} />
-        </div>
       </div>
-      <div className={classNames(styles.popularBooksContainer)}>
-        {popularBooksElements}
-      </div>
+      <Slider {...settings} className={classNames(styles.slider)}>
+        {sliderBooksElements}
+      </Slider>
     </div>
   );
 };

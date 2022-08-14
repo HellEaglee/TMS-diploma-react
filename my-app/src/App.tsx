@@ -4,6 +4,7 @@ import { Provider } from "react-redux";
 import styles from "./App.module.scss";
 import Router from "./Pages/Router";
 import store from "./Redux/store";
+import "./firebase";
 
 function App() {
   return (

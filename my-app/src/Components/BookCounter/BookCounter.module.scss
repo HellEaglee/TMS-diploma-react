@@ -1,0 +1,16 @@
+@import './../../Assets/styles/assets.scss';
+
+.counterWrapper {
+    
+    display: flex;
+    align-items: center;
+    gap: 25px;
+
+    .count {
+        font-family: 'Bebas Neue', sans-serif;
+        font-weight: 400;
+        font-size: 24px;
+        color: $primary;
+        line-height: 32px;
+    }
+}

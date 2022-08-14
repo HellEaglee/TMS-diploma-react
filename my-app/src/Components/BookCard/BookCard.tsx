@@ -2,7 +2,7 @@ import { FC } from "react";
 import classNames from "classnames";
 
 import styles from "./BookCard.module.scss";
-import { BookModel } from "../../Types/models/book.model";
+import { BookModel } from "../../Types";
 import { RatingIcon } from "../../Assets";
 import { Link } from "react-router-dom";
 

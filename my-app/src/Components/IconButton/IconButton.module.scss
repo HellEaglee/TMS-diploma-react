@@ -5,4 +5,8 @@
   border: none;
   cursor: pointer;
   display: flex;
+
+  img:hover {
+    stroke: $light-red;
+  }
 }

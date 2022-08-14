@@ -6,7 +6,7 @@ import styles from "./Books.module.scss";
 import { getBooks, BooksSelectors } from "../../Redux/reducers/books";
 import Subscribe from "../../Components/Subscribe";
 import Title from "../../Components/Title";
-import { BookModel } from "../../Types/models/book.model";
+import { BookModel } from "../../Types";
 import BookCard from "../../Components/BookCard";
 
 const Books: FC = () => {
@@ -15,6 +15,7 @@ const Books: FC = () => {
 
   useEffect(() => {
     dispatch(getBooks());
+    window.scrollTo(0, 0);
   }, []);
 
   const allBooksElements = useMemo(() => {

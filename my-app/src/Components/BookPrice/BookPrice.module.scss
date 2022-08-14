@@ -1,0 +1,17 @@
+@import './../../Assets/styles/assets.scss';
+
+.price {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 24px;
+    color: $primary;
+    line-height: 32px;
+}
+
+.big {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: $primary;
+    line-height: 60px;
+}

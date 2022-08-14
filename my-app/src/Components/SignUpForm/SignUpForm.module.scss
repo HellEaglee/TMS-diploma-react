@@ -1,0 +1,24 @@
+@import './../../Assets/styles/assets.scss';
+
+.contentWrapper {
+  display: flex;
+  flex-direction: column;
+  padding-top: 25px;
+  padding-left: 32px;
+  margin-bottom: 40px;
+
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 700;
+  font-size: 16px;
+  color: $primary;
+  line-height: 133%;
+
+  input {
+    width: 452px;
+  }
+
+  .authButton {
+    margin-top: 40px;
+    width: 480px;
+  }
+}

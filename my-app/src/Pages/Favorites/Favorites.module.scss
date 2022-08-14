@@ -1,4 +1,72 @@
 @import './../../Assets/styles/assets.scss';
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+.card {
+  display: flex;
+  align-items: center;
+  height: 242px;
+  width: 1120px;
+  gap: 30px;
+  border-bottom: 1px solid $gray;
+
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 24px;
+  color: $primary;
+  line-height: 32px;
+
+  .bookCover {
+  display: flex;
+  width: 256px;
+  height: 192px;
+  align-items: center;
+  justify-content: center;
+  background-color: $blue;
+  margin-bottom: 20px;
+
+    img {
+      width: 75%;
+      height: 110%;
+    }
+  }
+  
+
+  .bookInfo {
+  display: flex;
+  flex-grow: 1;
+  flex-direction: column;
+  gap: 35px;
+}
+  
+
+  .title {
+    cursor: pointer;
+  }
+    
+  .authors{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: $secondary;
+    line-height: 133%;
+  }
+
+  .ratingPrice {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .fav {
+  width: 150px;
+  display: flex;
+  justify-content: end;
+  cursor: pointer;
+  }
+}
+
+
+
 
 .favoritesContainer {
   min-height: 100vh;
@@ -24,14 +92,15 @@
 
   .noFavWrapper {
     width: 1120px;
-    min-height: 50vh;
+    // min-height: 50vh;
     display: flex;
     justify-content: space-between;
+    border-bottom: 1px solid $gray;
   }
 
   .favBooksWrapper {
     width: 1120px;
-    min-height: 80vh;
+    // min-height: 80vh;
     display: flex;
     flex-wrap: wrap;
     gap: 32px;
@@ -46,6 +115,11 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: $primary;
+    line-height: 60px;
 
     .arrowsWrapper {
       display: flex;
@@ -54,10 +128,18 @@
   }
 
   .popularBooksContainer {
-    width: 1120px;
     display: flex;
+    width: 1120px;
+    height: 500px;
+    // display: flex;
     justify-content: space-between;
     align-items: center;
+  }
+
+  .slider {
+    // display: flex;
+    width: 1120px;
+    // height: 453px;
   }
 }
 

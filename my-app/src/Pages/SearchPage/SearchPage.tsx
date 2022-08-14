@@ -5,7 +5,7 @@ import styles from "./SearchPage.module.scss";
 import Title from "../../Components/Title";
 import { useDispatch, useSelector } from "react-redux";
 import { BooksSelectors, getBooks } from "../../Redux/reducers/books";
-import { BookModel } from "../../Types/models/book.model";
+import { BookModel } from "../../Types";
 import BookCard from "../../Components/BookCard";
 
 const SearchPage: FC = () => {

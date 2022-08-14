@@ -1,6 +1,9 @@
-import { FC, useEffect, useMemo } from "react";
+import { FC, useEffect, useMemo, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import Slider from 'react-slick';
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.scss";
 import classNames from "classnames";
 
 import styles from "./BookPage.module.scss";
@@ -9,58 +12,83 @@ import {
   getBooks,
   setFavBooks,
   setSelectedBook,
+  removeBookFromFav,
+  removeBookFromCart,
+  setBookToCart,
 } from "../../Redux/reducers/books";
 import Title from "../Title";
 import Subscribe from "../Subscribe";
+import TabSwitcher from "../TabSwitcher";
 import {
   FBIcon,
   Heart,
+  HeartActive,
+  HeartFav,
   IconArrowLeft,
-  IconArrowRightSmall,
-  IconArrowSmall,
   MoreIcon,
   RatingIcon,
   TwitterIcon,
 } from "../../Assets";
 import Button from "../Button";
 import IconButton from "../IconButton";
-import Divider from "../Divider";
-import { addToCart } from "../../Redux/reducers/cart";
-import { BookModel } from "../../Types/models/book.model";
+import { BookModel } from "../../Types";
 import BookCard from "../BookCard";
 
 const BookPage: FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+
   const book = useSelector(BooksSelectors.getSelectedBook);
   const booksList = useSelector(BooksSelectors.getBooks);
   const { bookId } = useParams<{ bookId: string }>();
 
+  const [tabSelect, setTabSelect] = useState("description");
+  const [isActive, setActive] = useState(false);
+
+
+
   useEffect(() => {
     dispatch(setSelectedBook(bookId));
+    window.scrollTo(0, 0);
   }, []);
 
   useEffect(() => {
     dispatch(getBooks());
+    window.scrollTo(0, 0);
   }, []);
-
+  
   const addToCartHandler = (book: BookModel) => {
-    dispatch(addToCart(book));
+    dispatch(removeBookFromCart(book.isbn13));
+    dispatch(setBookToCart(book));
+
   };
 
   const addToFavHandler = (book: BookModel) => {
     dispatch(setFavBooks(book));
+    setActive(!isActive)
   };
 
-  const similarBooksElements = useMemo(() => {
+  const removeFromFavHandler = (book: BookModel) => {
+    dispatch(removeBookFromFav(book.isbn13))
+    setActive(!isActive)
+  }
+
+  const settings = {
+    infinite: true,
+    speed: 500,
+    slidesToShow: 3,
+    slidesToScroll: 3,
+  };
+
+  const sliderBooksElements = useMemo(() => {
     return booksList
-      ?.slice(5, 8)
-      .map((book: BookModel) => <BookCard key={book.isbn13} book={book} />);
+      ?.map((book: BookModel) => <BookCard key={book.isbn13} book={book} />);
   }, [booksList]);
 
   const onStepBackHandler = () => {
     navigate(-1);
   };
+
 
   return (
     <div className={classNames(styles.bookPageContainer)}>
@@ -70,14 +98,20 @@ const BookPage: FC = () => {
         <div className={classNames(styles.bookImageContainer)}>
           <div className={classNames(styles.bookBackground)}>
             <img src={book?.image} alt="book-preview" />
-            <div>
-              <IconButton
+            <div className={classNames(styles.favButton)}>
+              <div className={classNames(!isActive ? styles.favButtonNormal : "")}>
+                <IconButton
                 icon={Heart}
-                onClick={() => {
-                  addToFavHandler(book!);
-                }}
-              />
+                onClick={() => {addToFavHandler(book!);}}/>
+              </div>
             </div>
+            <div className={classNames(styles.favButton)}>
+              <div className={classNames(!isActive ? styles.favButtonActive : "")}>
+                  <IconButton
+                  icon={HeartFav}
+                  onClick={() => {removeFromFavHandler(book!);}} 
+                  /></div>
+              </div>
           </div>
         </div>
         <div className={classNames(styles.bookInfoWrapper)}>
@@ -110,48 +144,50 @@ const BookPage: FC = () => {
             <p className={classNames(styles.textWrapper)}>Format</p>
             <p>Paper book / ebook (PDF)</p>
           </div>
-          <p>More details...</p>
           <Button
             title="ADD TO CART"
             onClick={() => addToCartHandler(book!)}
             className={classNames(styles.buttonWrapper)}
           />
-          <p>Preview book</p>
+          {(
+            <div className={styles.detailsUrl}>
+              <a href={book?.url} target="_blank">
+                Preview book
+              </a>
+            </div>
+          )}
         </div>
       </div>
 
-      <div className={classNames(styles.titlesWrapper)}>
-        <div className={classNames(styles.oneTitleWrapper)}>
-          <p>Description</p>
-          <div className={classNames(styles.dividerLine)}></div>
-        </div>
-
-        <p>Authors</p>
-        <p>Reviews</p>
+      <div className={styles.switcher}>
+        <TabSwitcher
+          options={[
+            { text: "Description", value: "description" },
+            { text: "Authors", value: "authors" },
+            { text: "Reviews", value: "reviews" },
+          ]}
+          changeHandler={(value: string) => setTabSelect(value)}
+          type="info"
+        />
       </div>
-
-      <Divider />
-
-      <div className={classNames(styles.descWrapper)}>{book?.desc}</div>
-
-      <div className={classNames(styles.IconsWrapper)}>
-        <IconButton icon={FBIcon} onClick={() => {}} />
-        <IconButton icon={TwitterIcon} onClick={() => {}} />
-        <IconButton icon={MoreIcon} onClick={() => {}} />
+      <div className={styles.infoText}>
+        {tabSelect === "description" ? (
+          <p>{book?.desc}</p>
+        ) : tabSelect === "authors" ? (
+          <p>{book?.authors}</p>
+        ) : (
+          <p>There are no reviews yet. You can write the first one!</p>
+        )}
       </div>
 
       <Subscribe />
 
       <div className={classNames(styles.secondTitleContainer)}>
         <h2>SIMILAR BOOKS</h2>
-        <div className={classNames(styles.arrowsWrapper)}>
-          <IconButton icon={IconArrowSmall} onClick={() => {}} />
-          <IconButton icon={IconArrowRightSmall} onClick={() => {}} />
-        </div>
       </div>
-      <div className={classNames(styles.popularBooksContainer)}>
-        {similarBooksElements}
-      </div>
+      <Slider {...settings}>
+        {sliderBooksElements}
+      </Slider>
     </div>
   );
 };

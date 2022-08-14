@@ -1,0 +1,56 @@
+@import './../../Assets/styles/assets.scss';
+
+.sumWrapper {
+  width: 260px;
+
+  .sumRow {
+    display: flex;
+    justify-content: space-between;
+
+    &:last-child {
+      margin-bottom: 24px;
+    }
+  }
+  
+  .title {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: $secondary;
+    line-height: 133%;
+  }
+
+  .value {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: $primary;
+    line-height: 133%;
+  }
+
+  .sumRowTotal {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .titleTotal {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: $primary;
+    line-height: 60px;
+  }
+
+  .valueTotal {
+    font-family: 'Bebas Neue', sans-serif;
+    font-weight: 400;
+    font-size: 40px;
+    color: $primary;
+    line-height: 60px;
+  }
+
+  button {
+    width: 100%;
+  }
+}
+

@@ -1,45 +1,88 @@
 @import './../../Assets/styles/assets.scss';
 
-.cartContainer {
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
-  align-items: center;
-  padding-top: 77px;
+.cartWrapper {
+  width: 1120px;
 
-  .cartWrapper {
-    width: 1120px;
-    display: flex;
-    flex-direction: column;
-    font-family: 'Source Sans Pro', sans-serif;
-    font-weight: 400;
-    font-size: 14px;
-    color: $primary;
-    line-height: 133%;
+  .back {
+    margin-bottom: 40px;
+    cursor: pointer;
   }
 
-  .totalContainer {
-    width: 1120px;
-    display: flex;
-    justify-content: flex-end;
+  .books {
+    margin-bottom: 70px;
 
-    .totalWrapper {
-      display: flex;
-      flex-direction: column;
-      gap: 16px;
+    .cartBook {
+      margin-bottom: 50px;
 
-      .checkButton {
-        width: 256px;
-        margin-bottom: 72px;
+      &:last-child {
+          margin-bottom: 0;
+        }   
       }
-    }
+  }
+    
+  .noBooksMessage {
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    color: $primary;
+    line-height: 133%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+  }
+
+    
+  .sumCheck {
+    display: flex;
+    justify-content: end;
+    margin-bottom: 70px;
   }
 }
 
+.card {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  border-bottom: 1px solid $gray;
+  
+  .bookCover {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: $blue;
+    margin-bottom: 20px;
+  }
+    
 
+  .bookInfo {
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    gap: 35px;
 
+    .title {
+      cursor: pointer;
+    }
 
+    .authors {
+      font-family: 'Source Sans Pro', sans-serif;
+      font-weight: 400;
+      font-size: 16px;
+      color: $primary;
+      line-height: 133%;
+    }
+  }
+    
+  .price {
+    min-width: fit-content;
+  }
 
-
-
+  .delete {
+    cursor: pointer;
+    width: 150px;
+    display: flex;
+    justify-content: end;
+  }
+}
 

@@ -1,113 +1,70 @@
-import { FC, useEffect, useState } from "react";
+import { FC, useState } from "react";
 import classNames from "classnames";
+import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import {
+  getAuth,
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 
 import styles from "./Authorization.module.scss";
-import Input from "../../Components/Input";
-import Button from "../../Components/Button";
-import { Link } from "react-router-dom";
 
-type Tabs = "Sign in" | "Sign up";
+import { setUser } from "../../Redux/reducers/user";
+import TabSwitcher from "../../Components/TabSwitcher";
+import SignInForm from "../../Components/SignInForm";
+import SignUpForm from "../../Components/SignUpForm";
 
 const Authorization: FC = () => {
-  const [currentTab, setCurrentTab] = useState<Tabs>("Sign in");
-  const [welcomeTextShown, setWelcomeTextShown] = useState(false);
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const changeTabHandler = () => {
-    if (currentTab === "Sign in") setCurrentTab("Sign up");
-    else setCurrentTab("Sign in");
+  const [tabSelect, setTabSelect] = useState("signIn");
+
+  const handleRegister = (email: string, password: string) => {
+    const auth = getAuth();
+    createUserWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        console.log(user);
+        dispatch(
+          setUser({ email: user.email, id: user.uid, token: user.refreshToken })
+        );
+        navigate("/main");
+      })
+      .catch(console.error);
   };
 
-  useEffect(() => {
-    setTimeout(() => {
-      setWelcomeTextShown(true);
-    }, 2000);
-  }, []);
+  const handleLogin = (email: string, password: string) => {
+    const auth = getAuth();
+    signInWithEmailAndPassword(auth, email, password)
+      .then(({ user }) => {
+        console.log(user);
+        dispatch(
+          setUser({ email: user.email, id: user.uid, token: user.refreshToken })
+        );
+        navigate("/main");
+      })
+      .catch(() => alert("Invalid user!"));
+  };
 
   return (
-    <div className={classNames(styles.authContainer)}>
-      <div className={classNames(styles.authWrapper)}>
-        <div className={classNames(styles.tabsContainer)}>
-          <div className={classNames(styles.tabsWrapper)}>
-            <Button
-              title="SIGN IN"
-              onClick={changeTabHandler}
-              className={classNames(styles.tabsButton)}
-            />
-            <Button
-              title="SIGN UP"
-              onClick={changeTabHandler}
-              className={classNames(styles.tabsButton)}
-            />
-          </div>
+    <div className="wrapper" style={{ height: "680px" }}>
+      <div className={styles.authWrapper}>
+        <div className={styles.tabsWrapper}>
+          <TabSwitcher
+            options={[
+              { text: "Sign in", value: "signIn" },
+              { text: "Sign up", value: "signUp" },
+            ]}
+            changeHandler={(value: string) => setTabSelect(value)}
+            type={"auth"}
+          />
         </div>
-
-        <div className={classNames(styles.tabContentWrapper)}>
-          {currentTab === "Sign in" ? (
-            <div className={classNames(styles.signInWrapper)}>
-              <div className={classNames(styles.dividerLeft)}></div>
-
-              {welcomeTextShown && <div className={classNames(styles.welcomeTextWrapper)}>
-                <div className={classNames(styles.welcomeText)}>Your password has been changed!</div>
-                </div>}
-              <div className={classNames(styles.contentWrapper)}>
-
-                <p>Email</p>
-                <Input
-                  type="text"
-                  onChange={() => {}}
-                  placeholder="Your email"
-                />
-                <p>Password</p>
-                <Input
-                  type="password"
-                  onChange={() => {}}
-                  placeholder="Your password"
-                />
-                <div className={classNames(styles.forgotPassWrapper)}>
-                  <Link to="/reset-password">Forgot password?</Link>
-                </div>
-                <Button
-                  title="SIGN IN"
-                  onClick={() => {}}
-                  className={classNames(styles.authButton)}
-                />
-              </div>
-            </div>
+        <div className={styles.compWrapper}>
+          {tabSelect === "signIn" ? (
+            <SignInForm handleClick={handleLogin} />
           ) : (
-            <div className={classNames(styles.signUpWrapper)}>
-              <div className={classNames(styles.dividerRight)}></div>
-              <div className={classNames(styles.contentWrapper)}>
-                <p>Name</p>
-                <Input
-                  type="text"
-                  onChange={() => {}}
-                  placeholder="Your name"
-                />
-                <p>Email</p>
-                <Input
-                  type="text"
-                  onChange={() => {}}
-                  placeholder="Your email"
-                />
-                <p>Password</p>
-                <Input
-                  type="password"
-                  onChange={() => {}}
-                  placeholder="Your password"
-                />
-                <p>Confirm password</p>
-                <Input
-                  type="password"
-                  onChange={() => {}}
-                  placeholder="Confirm your password"
-                />
-                <Button
-                  title="SIGN UP"
-                  onClick={() => {}}
-                  className={classNames(styles.authButton)}
-                />
-              </div>
-            </div>
+            <SignUpForm handleClick={handleRegister} />
           )}
         </div>
       </div>

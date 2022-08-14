@@ -38,13 +38,18 @@
 
   .emailWrapper {
     padding: 0 0 45px 64px;
-    display: flex;
+    display: inline-block;
 
     input {
       height: 56px;
-      width: 992px;
+      width: 823px;
       border-radius: 2px;
       padding: 16px, 32px, 16px, 24px;
+    }
+
+    button {
+      height: 56px;
+      width: 160px;
     }
   }
   

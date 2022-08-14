@@ -5,6 +5,7 @@
   width: 448px;
   background-color: $primary;
   border: none;
+  transition: 0.3s;
 
   font-family: 'Bebas Neue', sans-serif;
   font-weight: 400;
@@ -12,4 +13,8 @@
   color: $white;
   line-height: 32px;
   cursor: pointer;
+
+  &:hover {
+    background-color: $primary-light;
+  }
 }

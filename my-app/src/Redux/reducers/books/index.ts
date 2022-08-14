@@ -1,6 +1,6 @@
 import { createSlice, PayloadAction } from "@reduxjs/toolkit";
 
-import { BookModel } from "./../../../Types/models/book.model";
+import { BookModel, CartBookItemProps } from "../../../Types";
 import { RootState } from "../../store";
 
 type InitialStateType = {
@@ -9,6 +9,7 @@ type InitialStateType = {
   isBooksLoading: boolean;
   selectedBookLoading: boolean;
   favBooksList: any[];
+  cartList: CartBookItemProps[];
 }; 
 
 const initialState: InitialStateType = {
@@ -17,6 +18,7 @@ const initialState: InitialStateType = {
   isBooksLoading: false,
   selectedBookLoading: false,
   favBooksList: [],
+  cartList: [],
 };
 
 const booksSlice = createSlice({
@@ -39,6 +41,23 @@ const booksSlice = createSlice({
     setFavBooks: (state: any, action: any) => {
       state.favBooksList.push(action.payload);
     },
+    removeBookFromFav: (state, action: PayloadAction<any>) => {
+      state.favBooksList = state.favBooksList.filter(
+        (book) => book.isbn13 !== action.payload
+      );
+    },
+    setBookToCart: (state, action: PayloadAction<CartBookItemProps>) => {
+      state.cartList.push(action.payload);
+    },
+    removeBookFromCart: (state, action: PayloadAction<any>) => {
+      //CartBookItemProps
+      state.cartList = state.cartList.filter(
+        (book) => book.isbn13 !== action.payload
+      );
+    },
+    removeAllBooksFromCart: (state) => {
+      state.cartList = initialState.cartList;
+    },
   },
 });
 
@@ -49,6 +68,10 @@ export const {
   setSelectedBook,
   setSelectedBookLoading,
   setFavBooks,
+  setBookToCart,
+  removeBookFromFav,
+  removeBookFromCart,
+  removeAllBooksFromCart
 } = booksSlice.actions;
 
 const reducer = booksSlice.reducer;
@@ -63,3 +86,8 @@ export const BooksSelectors = {
   getSelectedBookLoading: (state: RootState) => state.books.selectedBookLoading,
   getFavBooks: (state: RootState) => state.books.favBooksList,
 };
+
+export const CartBooksSelector = {
+  getCartBooks: (state: RootState) => state.books.cartList,
+};
+

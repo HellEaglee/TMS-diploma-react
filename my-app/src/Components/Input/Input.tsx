@@ -7,21 +7,18 @@ import styles from "./Input.module.scss";
 
 type InputProps = {
   type: string;
-  value?: string;
-  onChange: any;
+  value?: string | number;
+  onChange?: any;
   placeholder?: string;
   onKeyDown?: any;
 };
 
 const Input: FC<InputProps> = ({ type, value, onChange, placeholder, onKeyDown }) => {
-  const onInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    onChange(event.target.value);
-  };
   return (
     <input
       type={type}
       value={value}
-      onChange={onInputChange}
+      onChange={onChange}
       className={classNames(styles.input)}
       placeholder={placeholder}
       onKeyDown={onKeyDown}
