@@ -51,4 +51,4 @@ export type CartSumProps = {
   price: number;
 };
 
-export type BookListType = Array<BookModel>;
+export type BookListType = Array<BookItemProps>;
