@@ -11,7 +11,7 @@
   font-size: 16px;
   color: $primary;
   line-height: 32px;
-  margin-top: 77px;
+  margin-top: 72px;
 
   .bookInfoContainer {
     display: flex;
@@ -26,6 +26,7 @@
         height: 472px;
         background: $purple;
         justify-content: center;
+        position: relative;
 
         .favButton {
           height: 34px;
@@ -35,12 +36,12 @@
           align-items: center;
           justify-content: center;
           cursor: pointer;
-          transition: 0.3s;
           border: none;
 
           padding: 8px;
           position: absolute;
-          left: calc(46% + 4px);
+          top: 0;
+          right: 0;
 
           .favButtonNormal {
             position: absolute;

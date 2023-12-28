@@ -39,14 +39,16 @@ const Router: FC = () => {
           <Route path={Pages.Page} element={<Books />} />
           <Route path={Pages.SearchPage} element={<SearchPage />} />
           <Route path={Pages.BookPage} element={<BookPage />} />
-          <Route 
-            path={Pages.CartPage} 
-            element={isAuth ? <CartPage /> : <Navigate to ={"/authorization"} />} 
-            />
-          <Route 
-            path={Pages.Favorites} 
-            element={isAuth ? <Favorites /> : <Navigate to ={"/authorization"} />} 
-            />
+          <Route
+            path={Pages.CartPage}
+            element={isAuth ? <CartPage /> : <Navigate to={"/authorization"} />}
+          />
+          <Route
+            path={Pages.Favorites}
+            element={
+              isAuth ? <Favorites /> : <Navigate to={"/authorization"} />
+            }
+          />
           <Route path={Pages.Account} element={<Account />} />
           <Route path={Pages.AuthPage} element={<Authorization />} />
           <Route path={Pages.ResetPassword} element={<ResetPassword />} />

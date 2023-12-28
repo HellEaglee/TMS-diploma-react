@@ -15,8 +15,10 @@ import IconButton from "../IconButton";
 import Divider from "../Divider";
 
 import styles from "./Header.module.scss";
+import useAuth from "../../Utils/hooks/use-auth";
 
 const Header: FC = () => {
+  const { isAuth } = useAuth();
   const navigate = useNavigate();
   const location = useLocation();
   const isCartPage = location.pathname === "/cart";
@@ -39,7 +41,11 @@ const Header: FC = () => {
   };
 
   const accountHandler = () => {
-    navigate("/account-info");
+    if (isAuth) {
+      navigate("/account-info");
+    } else {
+      navigate("/authorization");
+    }
   };
 
   return (

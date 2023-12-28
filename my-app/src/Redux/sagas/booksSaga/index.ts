@@ -1,9 +1,6 @@
 import { PayloadAction } from "@reduxjs/toolkit";
 import { all, takeLatest, put, call } from "redux-saga/effects";
-import {
-  getAllBooksApi,
-  getSelectedBookApi,
-} from "../../api";
+import { getAllBooksApi, getSelectedBookApi } from "../../api";
 import {
   getBooks,
   setBooks,
@@ -34,6 +31,6 @@ function* getSelectedBookSaga(action: PayloadAction<string>) {
 export default function* booksWatcher() {
   yield all([
     takeLatest(getBooks, getBooksSaga),
-    takeLatest(setSelectedBook, getSelectedBookSaga),
+    takeLatest(setSelectedBook.type, getSelectedBookSaga),
   ]);
 }

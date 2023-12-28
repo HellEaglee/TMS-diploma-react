@@ -14,33 +14,33 @@ const BookCard: FC<BookCardProps> = (props) => {
   const { book } = props;
 
   return (
-    
-      <div className={classNames(styles.bookCardContainer)}>
-        <div className={classNames(styles.bookCardWrapper)}>
-          <div>
-            <div className={classNames(styles.bookCardBackground)}>
+    <div className={classNames(styles.bookCardContainer)}>
+      <div className={classNames(styles.bookCardWrapper)}>
+        <div>
+          <div className={classNames(styles.bookCardBackground)}>
+            <Link to={`/main/${book.isbn13}`} className="link">
               <img src={book.image} alt="book-img" />
-            </div>
+            </Link>
           </div>
-          <div className={classNames(styles.bookCardDescribtion)}>
-            <div className={classNames(styles.bookCardTitle)}>
-              <Link to={`/main/${book.isbn13}`} className="link">
-                  {book.title}
-              </Link>
-            </div>
-            <div className={classNames(styles.bookCardSubTitle)}>
-                {book.subtitle}
-            </div>
-            <div className={classNames(styles.priceRateWrapper)}>
-              <div className={classNames(styles.price)}>{book.price}</div>
-              <div>
-                <img src={RatingIcon} alt="rating-icon" />
-              </div>
+        </div>
+        <div className={classNames(styles.bookCardDescribtion)}>
+          <div className={classNames(styles.bookCardTitle)}>
+            <Link to={`/main/${book.isbn13}`} className="link">
+              {book.title}
+            </Link>
+          </div>
+          <div className={classNames(styles.bookCardSubTitle)}>
+            {book.subtitle}
+          </div>
+          <div className={classNames(styles.priceRateWrapper)}>
+            <div className={classNames(styles.price)}>{book.price}</div>
+            <div>
+              <img src={RatingIcon} alt="rating-icon" />
             </div>
           </div>
         </div>
       </div>
-    
+    </div>
   );
 };
 

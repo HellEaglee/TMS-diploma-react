@@ -1,0 +1,180 @@
+@import url("https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap");
+.bookPageContainer {
+  width: 1120px;
+  display: flex;
+  flex-direction: column;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #313037;
+  line-height: 32px;
+  margin-top: 72px;
+}
+
+.bookPageContainer .bookInfoContainer {
+  display: flex;
+  justify-content: space-between;
+}
+
+.bookPageContainer .bookInfoContainer .bookImageContainer .bookBackground {
+  display: flex;
+  width: 544px;
+  height: 472px;
+  background: #f4eefd;
+  justify-content: center;
+  position: relative;
+}
+
+.bookPageContainer .bookInfoContainer .bookImageContainer .bookBackground .favButton {
+  height: 34px;
+  width: 34px;
+  background-color: #313037;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  border: none;
+  padding: 8px;
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.bookPageContainer .bookInfoContainer .bookImageContainer .bookBackground .favButton .favButtonNormal {
+  position: absolute;
+  visibility: visible;
+  z-index: 1;
+}
+
+.bookPageContainer .bookInfoContainer .bookImageContainer .bookBackground .favButton .favButtonNormal.isActive {
+  visibility: hidden;
+}
+
+.bookPageContainer .bookInfoContainer .bookImageContainer .bookBackground .favButton .favButtonActive {
+  position: absolute;
+  visibility: hidden;
+  z-index: 5;
+}
+
+.bookPageContainer .bookInfoContainer .bookImageContainer .bookBackground .favButton .favButtonActive.isActive {
+  visibility: visible;
+}
+
+.bookPageContainer .bookInfoContainer .bookImageContainer .bookBackground .favButton.isActive {
+  visibility: hidden;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper {
+  border-top: 1px solid #e7e7e7;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .dividerLineSmall {
+  width: 448px;
+  height: 1px;
+  background: white;
+  margin-bottom: 25px;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .detailsWrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .detailsWrapper .priceWrapper {
+  font-weight: 700;
+  font-size: 40px;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .detailsWrapper .textWrapper {
+  font-size: 16px;
+  color: #a8a8a8;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .detailsWrapper .authorWrapper {
+  display: flex;
+  justify-content: flex-end;
+  width: 65%;
+  text-align: right;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .buttonWrapper {
+  width: 100%;
+  margin: 25px 0;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .detailsUrl {
+  text-align: center;
+}
+
+.bookPageContainer .bookInfoContainer .bookInfoWrapper .detailsUrl a {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 20px;
+  color: #313037;
+  line-height: 133%;
+  text-decoration: none;
+}
+
+.bookPageContainer .switcher {
+  margin-top: 70px;
+}
+
+.bookPageContainer .infoText {
+  padding: 50px 0;
+  font-family: 'Source Sans Pro', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  color: #313037;
+  line-height: 32px;
+}
+
+.bookPageContainer .titlesWrapper {
+  display: flex;
+  gap: 120px;
+}
+
+.bookPageContainer .titlesWrapper .oneTitleWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.bookPageContainer .titlesWrapper .oneTitleWrapper .dividerLine {
+  width: 161px;
+  height: 2px;
+  background: #313037;
+}
+
+.bookPageContainer .descWrapper {
+  padding: 50px 0;
+}
+
+.bookPageContainer .IconsWrapper {
+  display: flex;
+  gap: 25px;
+}
+
+.bookPageContainer .secondTitleContainer {
+  width: 1120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: 'Bebas Neue', sans-serif;
+  font-weight: 400;
+  font-size: 40px;
+  color: #313037;
+  line-height: 60px;
+}
+
+.bookPageContainer .secondTitleContainer .arrowsWrapper {
+  display: flex;
+}
+
+.bookPageContainer .popularBooksContainer {
+  width: 1120px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

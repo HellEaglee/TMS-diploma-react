@@ -10,7 +10,7 @@ type InitialStateType = {
   selectedBookLoading: boolean;
   favBooksList: any[];
   cartList: BookItemProps[];
-}; 
+};
 
 const initialState: InitialStateType = {
   booksList: [],
@@ -32,13 +32,13 @@ const booksSlice = createSlice({
     setBooks: (state, action: PayloadAction<any[]>) => {
       state.booksList = action.payload;
     },
-    setSelectedBook: (state: any, action: any) => {
+    setSelectedBook: (state: any, action: PayloadAction<string>) => {
       state.selectedBook = action.payload;
     },
-    setSelectedBookLoading: (state: any, action: any) => {
+    setSelectedBookLoading: (state: any, action: PayloadAction<boolean>) => {
       state.isSelectedBookLoading = action.payload;
     },
-    setFavBooks: (state: any, action: any) => {
+    setFavBooks: (state: any, action: PayloadAction<BookItemProps>) => {
       state.favBooksList.push(action.payload);
     },
     removeBookFromFav: (state, action: PayloadAction<any>) => {
@@ -70,7 +70,7 @@ export const {
   setBookToCart,
   removeBookFromFav,
   removeBookFromCart,
-  removeAllBooksFromCart
+  removeAllBooksFromCart,
 } = booksSlice.actions;
 
 const reducer = booksSlice.reducer;
@@ -89,4 +89,3 @@ export const BooksSelectors = {
 export const CartBooksSelector = {
   getCartBooks: (state: RootState) => state.books.cartList,
 };
-
