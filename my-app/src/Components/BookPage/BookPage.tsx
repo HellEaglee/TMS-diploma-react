@@ -58,7 +58,6 @@ const BookPage: FC = () => {
   }, []);
 
   const addToCartHandler = (book: BookItemProps) => {
-    dispatch(removeBookFromCart(book.isbn13));
     dispatch(setBookToCart(book));
   };
 

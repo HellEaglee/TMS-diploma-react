@@ -25,7 +25,7 @@ const booksSlice = createSlice({
   name: "books",
   initialState,
   reducers: {
-    getBooks: (state, action: PayloadAction<undefined>) => {}, //=== fetch process from BE
+    getBooks: (state, action: PayloadAction<undefined>) => {},
     setLoadingBooks: (state, action: PayloadAction<boolean>) => {
       state.isBooksLoading = action.payload;
     },
